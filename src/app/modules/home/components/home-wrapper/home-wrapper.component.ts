@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToDo } from './models/ToDo';
 
 @Component({
   selector: 'app-home-wrapper',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeWrapperComponent implements OnInit {
 
   toDo: string = "Test";
-  todoArray: any[] | undefined;
+  todoArray: ToDo[] | undefined;
 
   constructor() { }
 
@@ -27,9 +28,10 @@ export class HomeWrapperComponent implements OnInit {
   addToArrayOfToDoList() {
     
     debugger;
-    
-    this.todoArray?.push(this.toDo);
+    let newToDo: ToDo = new ToDo(1, this.toDo, false);
+
+    this.todoArray?.push(newToDo);
 
   }
-  
+
 }
