@@ -5,14 +5,17 @@
 <button (click)="addToArrayOfToDoList()">Add to to do list</button>
 
 <div *ngIf="todoArray && todoArray.length > 0">
-    
+
     <span *ngFor="let todo of todoArray; let i = index">
-        
-        Name: {{todo.name}} <br>
+
+        <span [class.crossLine]="todo.isComplete">Name: {{todo.name}}</span>
 
         <!-- //<input type="checkbox" checked="{{todo.isComplete}}" (click)="toggleIsComplete(todo.id, !todo.isComplete)"/> IsComplete: {{todo.isComplete}} -->
-        <input type="checkbox"  [(ngModel)]="todo.isComplete"/> IsComplete: {{todo.isComplete}}
+        <input type="checkbox"
+               [(ngModel)]="todo.isComplete" /> IsComplete: {{todo.isComplete}}
 
+        <br>
     </span>
 
+    <br>
 </div>
