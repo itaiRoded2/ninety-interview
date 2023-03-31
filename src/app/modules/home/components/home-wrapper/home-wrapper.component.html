@@ -4,9 +4,15 @@
 
 <button (click)="addToArrayOfToDoList()">Add to to do list</button>
 
-<ul *ngIf="todoArray && todoArray.length > 0">
-    <li *ngFor="let todo of todoArray">
-        Name: {{todo.name}} &nbsp;&nbsp;&nbsp;
-        IsComplete: {{todo.isComplete}}
-    </li>
-</ul>
+<div *ngIf="todoArray && todoArray.length > 0">
+    
+    <span *ngFor="let todo of todoArray; let i = index">
+        
+        Name: {{todo.name}} <br>
+
+        <!-- //<input type="checkbox" checked="{{todo.isComplete}}" (click)="toggleIsComplete(todo.id, !todo.isComplete)"/> IsComplete: {{todo.isComplete}} -->
+        <input type="checkbox"  [(ngModel)]="todo.isComplete"/> IsComplete: {{todo.isComplete}}
+
+    </span>
+
+</div>

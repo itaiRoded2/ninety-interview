@@ -9,7 +9,7 @@ import { ToDo } from './models/ToDo';
 export class HomeWrapperComponent implements OnInit {
 
   toDo: string = "Test";
-  todoArray: ToDo[] | undefined;
+  todoArray: ToDo[] = [];
 
   constructor() { }
 
@@ -28,10 +28,20 @@ export class HomeWrapperComponent implements OnInit {
   addToArrayOfToDoList() {
     
     debugger;
-    let newToDo: ToDo = new ToDo(1, this.toDo, false);
+    let newToDo: ToDo = new ToDo(this.todoArray.length + 1, this.toDo, true);
 
     this.todoArray?.push(newToDo);
 
+  }
+
+  toggleIsComplete(id : number, newValueForIsComplete: boolean) {
+
+    debugger;
+    let theToDoWeWant: any = this.todoArray.find(todo => todo.id == id);
+
+    theToDoWeWant.isComplete = newValueForIsComplete;
+
+    
   }
 
 }

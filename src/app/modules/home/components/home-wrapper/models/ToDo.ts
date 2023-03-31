@@ -2,7 +2,7 @@ export class ToDo {
     
     id: number;
     name: string;
-    isComplete: boolean;
+    isComplete?: boolean;
 
     constructor(id: number, name: string, isComplete: boolean) {
         this.id = id
