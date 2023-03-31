@@ -1,1 +1,9 @@
-<p>home-wrapper works!</p>
+<input type="text" [(ngModel)]="toDo" name="toDo">
+
+<button (click)="addToArrayOfToDoList()">Add to to do list</button>
+
+    <ul *ngIf="todoArray && todoArray.length > 0">
+        <li *ngFor="let todo of todoArray">
+            {{todo}}
+        </li>
+    </ul>
